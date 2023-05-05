@@ -43,7 +43,7 @@ iex> PageFetcher.execute("https://example.com/some-not-existing-page")
 
 This implementation makes some assumptions and has some limitations:
 
-* The implementation assumes that the web page is in HTML format and contains `<img>` and `<a>` tags with valid URLs in the src and href attributes, respectively. If the web page contains other types of assets or links, they will not be detected by this implementation.
+* The implementation assumes that the web page is in HTML format and contains `<img>` and `<a>` tags with valid URLs in the src and href attributes. If the web page contains other types of assets or links, they will not be detected by this implementation. And if the page does not contains the expected tags, an empty list for these tags will be returned.
 
 * The implementation uses the Floki library to parse the HTML and extract the URLs. If the HTML is malformed or not well-formed, the parsing may fail or return incorrect results.
 
@@ -64,6 +64,8 @@ If I had more time, some work could be improved on this implementation in a few 
 ## **Tests 🔬**
 
 The best testing practices were used in this applicaition. It's a 100% tests covered, and it was completely developed using TDD. The library [TestWatch](https://github.com/lpil/mix-test.watch) made that posssible since it runs tests while coding!
+
+Also, no web request is really made in the tests. The app uses the best practices for mocks by mimicking **behaviours**, which is strongly recommended in the elixir community and most languages. As provided by the library [Mox](https://github.com/dashbitco/mox).
 
 To check coverage please type the following in the root folder of the app:
 
