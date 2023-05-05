@@ -32,7 +32,7 @@ iex> PageFetcher.execute("example.com")
 {:error, "The given url is invalid. Please, check if it is correct and follow the default pattern such as: 'http://example.com'."}
 ```
 
-Or when for some reason the page is unreachable, it will return what the actual error from the page which can vary.
+Or when for some reason the page is unreachable, it will return the actual error from the page which can vary.
 
 ```elixir
 iex> PageFetcher.execute("https://example.com/some-not-existing-page")
