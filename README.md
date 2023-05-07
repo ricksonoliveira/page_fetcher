@@ -18,7 +18,7 @@ To use the PageFetcher module in your own code, you can call the fetch function 
 
 
 ```elixir
-iex> PageFetcher.execute("https://example.com")
+iex> PageFetcher.fetch("https://example.com")
 {:ok, %{
   assets: ["https://example.com/image.jpg", "https://example.com/logo.png"],
   links: ["https://example.com/", "https://example.com/about"]
@@ -28,14 +28,14 @@ iex> PageFetcher.execute("https://example.com")
 If the URL is invalid or the HTTP request fails, the function will return an error tuple:
 
 ```elixir
-iex> PageFetcher.execute("example.com")
+iex> PageFetcher.fetch("example.com")
 {:error, "The given url is invalid. Please, check if it is correct and follow the default pattern such as: 'http://example.com'."}
 ```
 
 Or when for some reason the page is unreachable, it will return the actual error from the page which can vary.
 
 ```elixir
-iex> PageFetcher.execute("https://example.com/some-not-existing-page")
+iex> PageFetcher.fetch("https://example.com/some-not-existing-page")
 {:error, "Page does not exists"}
 ```
 
